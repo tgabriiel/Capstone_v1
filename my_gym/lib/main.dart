@@ -57,42 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    /*
-    Widget page;
-    switch (selectedIndex) {
-      //This page is going to be the workout page
-      case 0:
-        page = GeneratorPage();
-        break;
-      //This page is going to be the calorie page
-      case 1:
-        page = FavoritesPage();
-        break;
-      //This page will be the adding meals page
-      case 2:
-        page = FoodTracker();
-        break;
-      default:
-        throw UnimplementedError('no widget for $selectedIndex');
-    }
-    */
-
     final List<Widget> page = [
-      Center(
-          child: Text(
-        'Gym Page',
-        style: TextStyle(fontSize: 35),
-      )),
-      Center(
-          child: Text(
-        'Food Page',
-        style: TextStyle(fontSize: 35),
-      )),
-      Center(
-          child: Text(
-        'Calorie Page',
-        style: TextStyle(fontSize: 35),
-      )),
+      WorkoutTracking(),
+      MealTracking(),
+      CalorieTracking(),
     ];
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -111,16 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(12),
                 tabs: [
                   GButton(
-                    icon: Icons.sports_gymnastics,
-                    text: 'Gym',
+                    icon: Icons.fitness_center,
+                    text: 'Workout Tracking',
                   ),
                   GButton(
                     icon: Icons.food_bank,
-                    text: 'Food',
+                    text: 'Meal Tracking',
                   ),
                   GButton(
-                    icon: Icons.sports_gymnastics,
-                    text: 'Calories',
+                    icon: Icons.incomplete_circle,
+                    text: 'Calorie Tracking',
                   )
                 ],
                 selectedIndex: selectedIndex,
@@ -135,47 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 }
-/*
-children: [
-            SafeArea(
-              child: NavigationRail(
-                extended: constraints.maxWidth >= 600,
-                destinations: [
-                  NavigationRailDestination(
-                    icon: Icon(Icons.sports_gymnastics_sharp),
-                    label: Text('Gym'),
-                  ),
-                  NavigationRailDestination(
-                    icon: Icon(Icons.fastfood),
-                    label: Text('Favorites'),
-                  ),
-                  NavigationRailDestination(
-                    icon: Icon(Icons.local_drink),
-                    label: Text('Favorites'),
-                  ),
-                ],
-                selectedIndex: selectedIndex,
-                onDestinationSelected: (value) {
-                  setState(() {
-                    selectedIndex = value;
-                  });
-                },
-              ),
-            ),
-            Expanded(
-              child: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                child: page,
-              ),
-            ),
-          ],
-        ),
-          );
-    });
-  }
-}*/
 
-class GeneratorPage extends StatelessWidget {
+class WorkoutTracking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -219,14 +148,15 @@ class GeneratorPage extends StatelessWidget {
   }
 }
 
-class FavoritesPage extends StatelessWidget {
+class MealTracking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
 
     if (appState.favorites.isEmpty) {
       return Center(
-        child: Text('No favorites yet.'),
+        child: Text('You have added no meals yet...\n'
+            'You should add some meals to get started! '),
       );
     }
 
@@ -234,8 +164,7 @@ class FavoritesPage extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Text('You have '
-              '${appState.favorites.length} favorites:'),
+          child: Text('You have ' '${appState.favorites.length} favorites:'),
         ),
         for (var pair in appState.favorites)
           ListTile(
@@ -247,14 +176,15 @@ class FavoritesPage extends StatelessWidget {
   }
 }
 
-class FoodTracker extends StatelessWidget {
+class CalorieTracking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
 
     if (appState.favorites.isEmpty) {
       return Center(
-        child: Text('You have added no meals yet...'),
+        child: Text('You have not added any calorie input yet...\n'
+            'Start adding now!'),
       );
     }
 
@@ -262,7 +192,8 @@ class FoodTracker extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Text('You have ' '${appState.favorites.length} favorites:'),
+          child: Text('You have '
+              '${appState.favorites.length} favorites:'),
         ),
         for (var pair in appState.favorites)
           ListTile(
