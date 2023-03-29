@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "154119650435",
+    "firebase_url": "https://gymapp-735c9-default-rtdb.firebaseio.com",
+    "project_id": "gymapp-735c9",
+    "storage_bucket": "gymapp-735c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154119650435:android:df2f71cf21de097bdc2fb6",
+        "android_client_info": {
+          "package_name": "com.example.my_gym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154119650435-o0jsv8biuuqj1g33ihosn8v21oflle2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBietKhRRNRSZTNi7jvaN7abyv2SRmXs0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154119650435-o0jsv8biuuqj1g33ihosn8v21oflle2l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "154119650435-tptia717f1b5sd6gc4lupe9d43uvdvrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myGym"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

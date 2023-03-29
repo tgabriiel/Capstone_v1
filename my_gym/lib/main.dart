@@ -2,8 +2,14 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -127,7 +133,7 @@ class WorkoutTracking extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ElevatedButton.icon(
-                onPressed: () {
+                onPressed: () async {
                   appState.toggleFavorite();
                 },
                 icon: Icon(icon),
@@ -146,6 +152,10 @@ class WorkoutTracking extends StatelessWidget {
       ),
     );
   }
+}
+
+class SharedPreferences {
+  static getInstance() {}
 }
 
 class MealTracking extends StatelessWidget {
