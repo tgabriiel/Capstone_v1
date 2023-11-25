@@ -1,4 +1,4 @@
-# Capstone_v1
+# Capstone_v1 : Gym Application
 CS 499 / Dr. Brian Thoms
 Gabriel Tirado
 
