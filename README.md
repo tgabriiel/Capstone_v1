@@ -1,5 +1,5 @@
-# Capstone_v1 : Gym Application
+#**Capstone** : Gym Application
 CS 499 / Dr. Brian Thoms
 Gabriel Tirado
 
-This assignment and repository is one for my final project/capstone for my education at Channel Islands. This github will contain my code.
+This repository was my capstone. At the time I was heavily into working out and wanted to create something that I could use. This project gave me motivation to keep doing what I was doing and also an idea for a capstone. it allowed me to further develop my skills working on applications using Flutter. 
